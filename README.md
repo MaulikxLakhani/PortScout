@@ -2,7 +2,7 @@
 
 ## 📜 Description
 
-PortScout is a fast and efficient network port scanner for common ports. This script performs rapidly fast scanning of multiple IP addresses and domain names to perform scans of common ports. While conducting a targeted security audit, PortScout provides the critical information you need to keep your systems secure.
+PortScout is a fast and efficient network port scanner for common ports. This script performs rapidly fast scanning of supplied IP addresses and domain names to check common ports. While conducting a targeted security audit, PortScout provides the critical information you need to keep your systems secure.
 
 ## 🌟 Features
 
