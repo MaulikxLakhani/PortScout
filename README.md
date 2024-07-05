@@ -1,4 +1,4 @@
-![image](https://github.com/MaulikxLakhani/PortScout/assets/61105552/99dc4dbe-d300-40de-9eed-4df8ffa9c6a6)# PortScout - High Performance Port Scanner
+# PortScout - High Performance Port Scanner
 
 ## 📜 Description
 
