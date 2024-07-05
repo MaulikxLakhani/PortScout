@@ -2,14 +2,14 @@
 
 ## 📜 Description
 
-PortScout is a fast and efficient network port scanner for common ports. This script performs rapidly fast scanning of supplied IP addresses and domain names to check common ports. While conducting a targeted security audit, PortScout provides the critical information you need to keep your systems secure.
+PortScout is a fast and efficient network port scanner for common ports. This script performs rapid-fast scanning of supplied IP addresses and domain names to check common ports. While conducting a targeted security audit, PortScout provides the critical information you need to keep your systems secure. Ideally, it takes 2 minutes to scan 100 domains/IPs.
 
 ## 🌟 Features
 
+- **Multi-threading**: Uses threading for concurrent checks, significantly reducing scan times.
 - **Port Check**: Identifies open ports and provides service name.
 - **Banner Retrieval**: Efficiently retrieves SSH, HTTP banners without authentication.
-- **Multi-threading**: Uses threading for concurrent checks, significantly reducing scan times.
-- **Detailed Output**: Provides clear output summarizing scan result.
+- - **Detailed Output**: Provides clear output summarizing scan result.
 
 ## 🚀 Usage
 
@@ -34,7 +34,7 @@ python PortScout.py -d 91.191.200.30 proxy.domain.com
 #### List of targets via a text file
 
 ```bash
-python PortScout.py -l targets.txt
+python PortScout.py -t targets.txt
 ```
 
 ## Output
