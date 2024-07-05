@@ -16,38 +16,34 @@ def scan_port(ip, port, results):
             sock.settimeout(1)
             if not sock.connect((ip, port)):
                 service_name = socket.getservbyport(port, 'tcp')
+                banner = "Banner not available"
                 if port in [80, 443]:
                     try:
                         sock.sendall(b'GET / HTTP/1.1\r\nHost: %s\r\n\r\n' % ip.encode())
                         response = sock.recv(1024).decode(errors='ignore').split('\r\n')
                         banner = next(
                             (header.split(': ', 1)[1].strip() for header in response if header.startswith("Server:")),
-                            "Banner not available")
-                    except Exception as e:
-                        print(f"Error: {e}")
-                        banner = "Banner could not be retrieved."
+                            banner)
+                    except:
+                        pass
                 else:
-                    banner = sock.recv(1024).decode(errors='ignore').strip()
+                    banner = sock.recv(1024).decode(errors='ignore').strip() or banner
                 results.append((ip, port, "Open", service_name, banner))
-            else:
-                results.append((ip, port, "Closed", "", ""))
-    except socket.error:
-        results.append((ip, port, "Error", "", ""))
+    except:
+        pass
 
 
 def start_scanning(ip, results):
     threads = [threading.Thread(target=scan_port, args=(ip, port, results)) for port in common_ports]
-    for thread in threads:
-        thread.start()
-    for thread in threads:
-        thread.join()
+    [thread.start() for thread in threads]
+    [thread.join() for thread in threads]
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Port Scanner and Banner Grabber")
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument('-d', nargs='+', help="List of up to 100 domains/IP addresses", metavar="IP")
-    group.add_argument('-l', help="File containing list of domains/IP addresses", metavar="FILE")
+    group.add_argument('-d', nargs='+', help="List of up to 200 domains/IP addresses", metavar="IP")
+    group.add_argument('-t', help="File containing list of domains/IP addresses", metavar="FILE")
     return parser.parse_args()
 
 
@@ -57,27 +53,31 @@ def read_ips_from_file(file_path):
 
 
 def validate_targets(targets):
-    return [socket.gethostbyname(target) for target in targets if socket.gethostbyname(target)]
+    valid_targets = []
+    for target in targets:
+        try:
+            socket.gethostbyname(target)
+            valid_targets.append(target)
+        except socket.error:
+            pass
+    return valid_targets
 
 
 if __name__ == "__main__":
     args = parse_args()
-    targets = args.d if args.d else read_ips_from_file(args.l)
+    targets = args.d if args.d else read_ips_from_file(args.t)
     if not targets or len(targets) > 200:
         exit(print("You can supply up to 200 domains/IP addresses."))
-
     valid_targets = validate_targets(targets)
+    print("Scanning: ", valid_targets)
     if not valid_targets:
         exit(print("No valid domains/IP addresses to scan."))
-
     results = []
     for target in valid_targets:
         start_scanning(target, results)
-
     open_ports = [result for result in results if result[2] == "Open"]
-    print(tabulate(open_ports, headers=["IP Address", "Port", "Status", "Service", "Banner"], tablefmt="pretty"))
-    # Write results to result.csv
-    with open('PortScan.csv', mode='w', newline='') as file:
+    print(tabulate(open_ports, headers=["Domain/IP", "Port", "Status", "Service", "Banner"], tablefmt="pretty"))
+    with open('result.csv', mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["IP Address", "Port", "Status", "Service", "Banner"])
+        writer.writerow(["Domain/IP", "Port", "Status", "Service", "Banner"])
         writer.writerows(open_ports)
