@@ -1,4 +1,4 @@
-# PortScout - High Performance Port Scanner
+![image](https://github.com/MaulikxLakhani/PortScout/assets/61105552/99dc4dbe-d300-40de-9eed-4df8ffa9c6a6)# PortScout - High Performance Port Scanner
 
 ## 📜 Description
 
@@ -48,4 +48,16 @@ The script will provide a summary of the scanned targets:
 | 50.116.1.184 | 443  |  Open  |  https  | Apache/2.4.6 (CentOS) |
 | 50.116.1.184 |  22  |  Open  |   ssh   |  SSH-2.0-OpenSSH_7.4  |
 +--------------+------+--------+---------+-----------------------+
+```
+
+## Speed Comparison
+
+PortScout vs Nmap speed comparison:
+```
++-----------+------------------+-----------------+---------+----------------+
+| Tool Name | Total Domains/IP | Live Domains/IP | Command |   Time Taken   |
++-----------+------------------+-----------------+---------+----------------+
+| PortScout |        30        |       25        |         |   30 seconds   |
+|   Nmap    |        30        |       25        | -T4 -F  | 223.40 seconds |
++-----------+------------------+-----------------+---------+----------------+
 ```
