@@ -61,3 +61,25 @@ PortScout vs Nmap speed comparison:
 |   Nmap    |        30        |       25        | -T4 -F  | 223.40 seconds |
 +-----------+------------------+-----------------+---------+----------------+
 ```
+
+Feature Request
+-------------
+To request a new feature, create a "new issue" and describe the feature and potential use cases. You can upvote the "issue" and contribute to the discussions if something similar already exists.
+
+Authors
+-------------
+Project Founder
+*   Maulik Lakhani - [(LinkedIn)](https://in.linkedin.com/in/mauliklakhani)
+
+Contributors
+*   Please reach out to me on [(Twitter)](https://twitter.com/MaulikxLakhani) or [(LinkedIn)](https://in.linkedin.com/in/mauliklakhani)
+
+How to help
+-------------
+You can help this project in many ways:
+*   Spread this project within your network.
+*   Providing your time and coding skills to add more features and stability to the project.
+*   Provide access to feeds that detect CVE based on identified version.
+*   Open new issues with new suggestions, ideas, bug report or feature requests.
+*   Share your story how have you been using the PhishDetect and what impact it brought to you.
+
