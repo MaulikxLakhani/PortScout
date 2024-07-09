@@ -69,10 +69,10 @@ To request a new feature, create a "new issue" and describe the feature and pote
 Authors
 -------------
 Project Founder
-*   Maulik Lakhani - [(LinkedIn)](https://in.linkedin.com/in/mauliklakhani)
+*   Maulik Lakhani - [LinkedIn](https://in.linkedin.com/in/mauliklakhani)
 
 Contributors
-*   Please reach out to me on [(Twitter)](https://twitter.com/MaulikxLakhani) or [(LinkedIn)](https://in.linkedin.com/in/mauliklakhani)
+*   Please reach out to me on [Twitter](https://twitter.com/MaulikxLakhani) or [LinkedIn](https://in.linkedin.com/in/mauliklakhani)
 
 How to help
 -------------
