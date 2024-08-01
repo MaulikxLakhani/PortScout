@@ -2,14 +2,14 @@
 
 ## 📜 Description
 
-PortScout is a fast and efficient network port scanner for common ports. This script performs rapid-fast scanning of supplied IP addresses and domain names to check common ports. While conducting a targeted security audit, PortScout provides the critical information you need to keep your systems secure. Ideally, it takes 2 minutes to scan 100 domains/IPs.
+PortScout is a fast and efficient network port scanner for common ports. This script performs rapid-fast scanning of supplied IP addresses and domain names to check common ports. While conducting a targeted security audit, PortScout provides the critical information you need to secure your systems. Ideally, it takes 2 minutes to scan 100 domains/IPs.
 
 ## 🌟 Features
 
 - **Multi-threading**: Uses threading for concurrent checks, significantly reducing scan times.
 - **Port Check**: Identifies open ports and provides service name.
-- **Banner Retrieval**: Efficiently retrieves SSH, HTTP banners without authentication.
-- **Detailed Output**: Provides clear output summarizing scan result.
+- **Banner Retrieval**: Efficiently retrieves SSH, and HTTP banners without authentication.
+- **Detailed Output**: Provides clear output summarizing scan results.
 
 ## 🚀 Install
 
@@ -86,7 +86,7 @@ How to help
 You can help this project in many ways:
 *   Spread this project within your network.
 *   Providing your time and coding skills to add more features and stability to the project.
-*   Provide access to feeds that detect CVE based on identified version.
-*   Open new issues with new suggestions, ideas, bug report or feature requests.
-*   Share your story how have you been using the PhishDetect and what impact it brought to you.
+*   Provide access to feeds that detect CVE based on the identified version.
+*   Open new issues with new suggestions, ideas, bug reports or feature requests.
+*   Share your story about how have you been using the PhishDetect and what impact it brought.
 
