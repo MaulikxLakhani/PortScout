@@ -27,8 +27,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
     - name: Install Semgrep Agent
-      run: pip install semgrep-agent
+      run: pip install --upgrade semgrep-agent
+
+    - name: Fetch base branch
+      run: git fetch origin main:main
 
     - name: Run Semgrep Agent
-      run: semgrep-agent --config auto --baseline-ref $(git rev-parse origin/main)
+      run: semgrep-agent --config auto --baseline-ref origin/main
