@@ -11,6 +11,12 @@ PortScout is a fast and efficient network port scanner for common ports. This sc
 - **Banner Retrieval**: Efficiently retrieves SSH, HTTP banners without authentication.
 - **Detailed Output**: Provides clear output summarizing scan result.
 
+## 🚀 Install
+
+```bash
+pip install PortScout
+```
+
 ## 🚀 Usage
 
 ```bash
