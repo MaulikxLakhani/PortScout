@@ -1,7 +1,4 @@
 from setuptools import setup, find_packages
-import argparse
-import tabulate
-
 
 # Read the content of the README file
 with open("README.md", "r") as fh:
@@ -25,8 +22,6 @@ setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-        'argparse',
-        'tabulate',
     ],
     entry_points={
         'console_scripts': [
