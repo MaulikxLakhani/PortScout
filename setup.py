@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 import argparse
-import csv
+import tabulate
 
 
 # Read the content of the README file
