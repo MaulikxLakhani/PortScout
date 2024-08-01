@@ -6,7 +6,10 @@ on:
       - main
       - master
     paths:
-      - '**/*.py'    # Include Python files if your repo has Python code
+      - '**/*.py'         # Include Python files if your repo has Python code
+      - '**/*.js'         # Include JavaScript files if applicable
+      - '**/*.html'       # Include HTML files if applicable
+      - '**/*.css'        # Include CSS files if applicable
       - '.github/workflows/semgrep.yml'
   pull_request:
     branches:
@@ -24,15 +27,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Fetch all history for all tags and branches
-      run: git fetch --prune --unshallow
+    - name: Install Semgrep Agent
+      run: pip install semgrep-agent
 
-    - name: Install Semgrep
-      run: pip install semgrep
-
-    - name: Get base branch ref
-      id: vars
-      run: echo "::set-output name=BASE_REF::$(echo ${{ github.event.pull_request.base.sha }} || echo origin/main)"
-
-    - name: Run Semgrep
-      run: semgrep --config auto --diff ${{ steps.vars.outputs.BASE_REF }} $(git rev-parse HEAD)
+    - name: Run Semgrep Agent
+      run: semgrep-agent --config auto --baseline-ref $(git rev-parse origin/main)
