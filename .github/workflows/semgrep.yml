@@ -6,7 +6,7 @@ on:
       - main
       - master
     paths:
-      - '**/*.py' # Modify this to match your code files if different from Python
+      - '**/*.py'    # Include Python files if your repo has Python code
       - '.github/workflows/semgrep.yml'
   pull_request:
     branches:
@@ -17,7 +17,7 @@ on:
 jobs:
   semgrep:
     name: semgrep/ci
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     steps:
@@ -30,5 +30,9 @@ jobs:
     - name: Install Semgrep
       run: pip install semgrep
 
-    - name: Run Semgrep diff scan
-      run: semgrep --config auto --diff
+    - name: Get base branch ref
+      id: vars
+      run: echo "::set-output name=BASE_REF::$(echo ${{ github.event.pull_request.base.sha }} || echo origin/main)"
+
+    - name: Run Semgrep
+      run: semgrep --config auto --diff ${{ steps.vars.outputs.BASE_REF }} $(git rev-parse HEAD)
