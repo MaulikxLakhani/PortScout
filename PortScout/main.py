@@ -78,6 +78,7 @@ class PortScout:
             writer = csv.writer(file)
             writer.writerow(["Domain/IP", "Port", "Status", "Service", "Banner"])
             writer.writerows(open_ports)
+            print("Results are exported as results.csv in the current directory.")
 
 if __name__ == "__main__":
     PortScout().main()
