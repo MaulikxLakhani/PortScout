@@ -1,42 +1,24 @@
-name: Semgrep
-
 on:
+  workflow_dispatch: {}
+  pull_request: {}
   push:
     branches:
-      - main
-      - master
+    - main
+    - master
     paths:
-      - '**/*.py'         # Include Python files if your repo has Python code
-      - '**/*.js'         # Include JavaScript files if applicable
-      - '**/*.html'       # Include HTML files if applicable
-      - '**/*.css'        # Include CSS files if applicable
-      - '.github/workflows/semgrep.yml'
-  pull_request:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
-
+    - .github/workflows/semgrep.yml
+  schedule:
+  # random HH:MM to avoid a load spike on GitHub Actions at 00:00
+  - cron: 26 11 * * *
+name: Semgrep
 jobs:
   semgrep:
     name: semgrep/ci
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+    container:
+      image: returntocorp/semgrep
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-
-    - name: Install Semgrep Agent
-      run: pip install --upgrade semgrep-agent
-
-    - name: Fetch base branch
-      run: git fetch origin main:main
-
-    - name: Run Semgrep Agent
-      run: semgrep-agent --config auto --baseline-ref origin/main
+    - uses: actions/checkout@v4
+    - run: semgrep ci
