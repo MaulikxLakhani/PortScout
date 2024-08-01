@@ -4,6 +4,7 @@ name: Semgrep
 on:
   # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}
+  push: {}
 
 jobs:
   semgrep:
