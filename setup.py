@@ -10,7 +10,7 @@ with open('README.md') as f:
 
 setup(
     name='PortScout',
-    version='1',
+    version='1.0.1',
     author='Maulik Lakhani',
     author_email='maulik.lakhanix@gmail.com',  # Replace with the author's email
     description='A fast and efficient network port scanner for common ports. ',
