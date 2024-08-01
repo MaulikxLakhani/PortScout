@@ -9,7 +9,7 @@ PortScout is a fast and efficient network port scanner for common ports. This sc
 - **Multi-threading**: Uses threading for concurrent checks, significantly reducing scan times.
 - **Port Check**: Identifies open ports and provides service name.
 - **Banner Retrieval**: Efficiently retrieves SSH, HTTP banners without authentication.
-- - **Detailed Output**: Provides clear output summarizing scan result.
+- **Detailed Output**: Provides clear output summarizing scan result.
 
 ## 🚀 Usage
 
