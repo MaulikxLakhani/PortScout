@@ -55,6 +55,7 @@ The script will provide a summary of the scanned targets:
 | 50.116.1.184 | 443  |  Open  |  https  | Apache/2.4.6 (CentOS) |
 | 50.116.1.184 |  22  |  Open  |   ssh   |  SSH-2.0-OpenSSH_7.4  |
 +--------------+------+--------+---------+-----------------------+
+Results will be exported as results.csv in the current directory.
 ```
 
 ## Speed Comparison
