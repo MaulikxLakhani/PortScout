@@ -20,7 +20,8 @@ pip install PortScout
 ## 🚀 Usage
 
 ```bash
-python PortScout.py <targets>
+PortScout -d <target1, target2>
+PortScout -t <targets.txt>
 ```
 
 ### Examples
@@ -28,19 +29,19 @@ python PortScout.py <targets>
 #### Single domain or IP
 
 ```bash
-python PortScout.py -d 192.168.1.1
+PortScout -d 192.168.1.1
 ```
 
 #### Multiple domains and IPs
 
 ```bash
-python PortScout.py -d 91.191.200.30 proxy.domain.com
+PortScout -d 91.191.200.30 proxy.domain.com
 ```
 
 #### List of targets via a text file
 
 ```bash
-python PortScout.py -t targets.txt
+PortScout -t targets.txt
 ```
 
 ## Output
