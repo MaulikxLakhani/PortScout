@@ -22,12 +22,8 @@ setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-        # List your project's dependencies here.
-        # You can add dependencies by listing them like this:
-        # 'requests>=2.25.1',
-        # 'numpy>=1.19.5',
-      argparse,
-      tabulate,
+        'argparse',
+        'tabulate',
     ],
     entry_points={
         'console_scripts': [
