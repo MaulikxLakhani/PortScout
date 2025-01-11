@@ -4,6 +4,15 @@
 
 PortScout is a fast and efficient network port scanner for common ports. This script performs rapid-fast scanning of supplied IP addresses and domain names to check common ports. While conducting a targeted security audit, PortScout provides the critical information you need to secure your systems. Ideally, it takes 2 minutes to scan 100 domains/IPs.
 
+## 📜 Why PortScout?
+
+- **Built from scratch**: Highly efficient with tiny codebase. NO NEED of: venv, random dependencies, dependency version conflicts.
+- **"Speed. I am speed"**: Just like Lightning McQueen, this tool is superfast and solid. 
+- **Auto validation**: Quickly checks your supplied domain, subdomain, IP is valid/alive or not.
+- **Service Banner by default**: Gives you service banner - name and version by default that too at superfast speed. No additional flag or switch needed.
+- **Built Different**: Establieshes a socket connection to specified ports.
+- **Usable Output**: Gives you an output in table format on CLI, by default outputs a results.csv. Easy to integrate in any workflow.
+
 ## 🌟 Features
 
 - **Multi-threading**: Uses threading for concurrent checks, significantly reducing scan times.
