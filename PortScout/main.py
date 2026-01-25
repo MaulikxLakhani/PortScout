@@ -23,10 +23,10 @@ class PortScout:
                 sock.settimeout(1)
                 if sock.connect_ex((ip, port)) == 0:
                     service_name = socket.getservbyport(port, 'tcp')
-                    banner = "Banner not available"
+                    banner = "Banner not found"
                     if port in [80, 443]:
                         try:
-                            sock.sendall(b'GET / HTTP/1.1\r\nHost: %s\r\n\r\n' % ip.encode())
+                            sock.sendall(f'GET / HTTP/1.1\r\nHost: {ip}\r\n\r\n'.encode())
                             response = sock.recv(1024).decode(errors='ignore').split('\r\n')
                             banner = next(
                                 (header.split(': ', 1)[1].strip() for header in response if
@@ -35,7 +35,8 @@ class PortScout:
                         except:
                             pass
                     else:
-                        banner = sock.recv(1024).decode(errors='ignore').strip() or banner
+                        data = sock.recv(1024)
+                        banner = (data.decode('utf-8', errors='ignore') or data.decode('latin-1', errors='ignore')).strip() if data else banner
                     self.results.append((ip, port, "Open", service_name, banner))
         except:
             pass
