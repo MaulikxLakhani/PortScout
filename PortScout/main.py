@@ -26,7 +26,7 @@ class PortScout:
                     banner = "Banner not found"
                     if port in [80, 443]:
                         try:
-                            sock.sendall(b'GET / HTTP/1.1\r\nHost: %s\r\n\r\n' % ip.encode())
+                            sock.sendall(f'GET / HTTP/1.1\r\nHost: {ip}\r\n\r\n'.encode())
                             response = sock.recv(1024).decode(errors='ignore').split('\r\n')
                             banner = next(
                                 (header.split(': ', 1)[1].strip() for header in response if
