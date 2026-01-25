@@ -1,4 +1,4 @@
-name: Bandit Scan
+name: CodeQL Analysis
 
 on:
   push:
@@ -6,23 +6,32 @@ on:
   pull_request:
     branches: ["main"]
   schedule:
-    - cron: "0 13 * * 5"  # weekly on Friday at 13:00 UTC
+    - cron: "0 2 * * 0"  # weekly on Sundays at 02:00 UTC
+
+permissions:
+  actions: read
+  contents: read
+  security-events: write
 
 jobs:
-  bandit:
+  analyze:
+    name: CodeQL scan
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: python
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run Bandit security scan
-        uses: PyCQA/bandit-action@v1
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
         with:
-          severity: "crtical"
-          confidence: "medium"
-          
+          languages: ${{ matrix.language }}
+
+      - name: Run CodeQL analysis
+        uses: github/codeql-action/analyze@v4
